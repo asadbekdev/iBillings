@@ -1,10 +1,21 @@
 const String IMAGE_PATH = "assets/images";
 
 class ImageAssets {
-  static const String changeLangIc = "$IMAGE_PATH/change_lang_ic.svg";
-  static const String contactUsIc = "$IMAGE_PATH/contact_us_ic.svg";
-  static const String inviteFriendsIc = "$IMAGE_PATH/invite_friends_ic.svg";
-  static const String logoutIc = "$IMAGE_PATH/logout_ic.svg";
+  static const String arrowDownCircleIc = "$IMAGE_PATH/arrow_down_circle_ic.svg";
+  static const String arrowLeftIc = "$IMAGE_PATH/arrow_left_ic.svg";
+  static const String arrowRightIc = "$IMAGE_PATH/arrow_right_ic.svg";
+  static const String backIc = "$IMAGE_PATH/back_ic.svg";
+  static const String bookmarkIc = "$IMAGE_PATH/bookmark_ic.svg";
+  static const String calendarIc = "$IMAGE_PATH/calendar_ic.svg";
+  static const String closeIc = "$IMAGE_PATH/close_ic.svg";
+  static const String documentIc = "$IMAGE_PATH/document_ic.svg";
+  static const String filterIc = "$IMAGE_PATH/filter_ic.svg";
+  static const String invoiceIc = "$IMAGE_PATH/invoice_ic.svg";
+  static const String paperIc = "$IMAGE_PATH/paper_ic.svg";
+  static const String plusIc = "$IMAGE_PATH/plus_ic.svg";
+  static const String profileIc = "$IMAGE_PATH/profile_ic.svg";
+  static const String searchIc = "$IMAGE_PATH/search_ic.svg";
+  static const String timeIc = "$IMAGE_PATH/time_ic.svg";
 }
 
 
