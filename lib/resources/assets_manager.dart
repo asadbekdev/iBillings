@@ -1,4 +1,4 @@
-const String IMAGE_PATH = "assets/images";
+const String IMAGE_PATH = "assets/icons";
 
 class ImageAssets {
   static const String arrowDownCircleIc = "$IMAGE_PATH/arrow_down_circle_ic.svg";
