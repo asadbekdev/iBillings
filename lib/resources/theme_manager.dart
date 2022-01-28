@@ -11,16 +11,15 @@ ThemeData getApplicationTheme() {
     primaryColor: ColorManager.white,
     disabledColor: ColorManager.grey,
     splashColor: ColorManager.white,
+    fontFamily: 'Ubuntu',
     // card view theme
     cardTheme: CardTheme(
-      color: ColorManager.white,
-      shadowColor: ColorManager.grey,
+      color: ColorManager.darker,
       elevation: 0.0,
     ),
     // App bar theme
     appBarTheme: AppBarTheme(
-      color: ColorManager.white,
-      backgroundColor: ColorManager.darkest,
+      backgroundColor: ColorManager.black,
       elevation: 0.0,
       shadowColor: Colors.transparent,
       titleTextStyle: TextStyle(
@@ -40,12 +39,16 @@ ThemeData getApplicationTheme() {
     // elevated button theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        textStyle: TextStyle(color: ColorManager.white),
-        primary: ColorManager.primary,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6.0),
-        ),
-      ),
+          textStyle: TextStyle(color: ColorManager.white),
+          primary: ColorManager.lightGreen,
+          shadowColor: Colors.transparent,
+          elevation: 0.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(6.0),
+          ),
+          padding: EdgeInsets.zero,
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          minimumSize: const Size(0, 0)),
     ),
 
     // Text theme
