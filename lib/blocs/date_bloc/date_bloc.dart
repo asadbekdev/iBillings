@@ -1,11 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jiffy/jiffy.dart';
-
-abstract class DateEvent {}
-
-class DatePrevPressed extends DateEvent {}
-
-class DateNextPressed extends DateEvent {}
+part 'date_event.dart';
 
 int currentMonth = Jiffy().month;
 int currentYear = Jiffy().year;

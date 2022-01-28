@@ -2,23 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ibiling/resources/color_manager.dart';
 import 'package:ibiling/resources/font_manager.dart';
+import 'package:jiffy/jiffy.dart';
 
 class DateBtn extends StatelessWidget {
-  final String? wday;
-  final String? day;
-  const DateBtn({Key? key, required this.wday, required this.day})
+  final Jiffy jiffy;
+  final int index;
+  final int selectedDate;
+  final void Function()? onPressed;
+  const DateBtn(
+      {Key? key,
+      required this.jiffy,
+      required this.index,
+      required this.selectedDate,
+      this.onPressed})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       child: Column(
         children: [
           Text(
-            '$wday',
+            Jiffy([jiffy.year, jiffy.month, index + 1]).E,
             style: TextStyle(
-              color: ColorManager.grey2,
+              color: index == selectedDate
+                  ? ColorManager.white
+                  : ColorManager.grey2,
               fontWeight: FontWeightManager.semiBold,
               fontSize: FontSize.s14.sp,
               height: 1.3,
@@ -26,9 +36,11 @@ class DateBtn extends StatelessWidget {
           ),
           SizedBox(height: 7.h),
           Text(
-            '$day',
+            '${index + 1}',
             style: TextStyle(
-              color: ColorManager.grey2,
+              color: index == selectedDate
+                  ? ColorManager.white
+                  : ColorManager.grey2,
               fontWeight: FontWeightManager.semiBold,
               fontSize: FontSize.s14.sp,
               height: 1.3,
@@ -43,7 +55,9 @@ class DateBtn extends StatelessWidget {
         ],
       ),
       style: OutlinedButton.styleFrom(
-        backgroundColor: Colors.transparent,
+        backgroundColor: index == selectedDate
+            ? ColorManager.lightGreen
+            : Colors.transparent,
         padding: EdgeInsets.symmetric(
           horizontal: 14.w,
           vertical: 12.h,
