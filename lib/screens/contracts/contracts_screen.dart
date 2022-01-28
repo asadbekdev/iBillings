@@ -18,7 +18,7 @@ class ContractsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.black,
+      // backgroundColor: ColorManager.black,
       body: BlocBuilder<SelectedDateCubit, int>(
         bloc: selectedDateCubit,
         builder: (context, selectedDate) {
