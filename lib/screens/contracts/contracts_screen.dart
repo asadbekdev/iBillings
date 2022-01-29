@@ -18,13 +18,14 @@ class ContractsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: ColorManager.black,
+      backgroundColor: ColorManager.black,
       body: BlocBuilder<SelectedDateCubit, int>(
         bloc: selectedDateCubit,
         builder: (context, selectedDate) {
           return SingleChildScrollView(
             child: Column(
               children: [
+                // CALENDAR SECTION 
                 BlocBuilder<DateBloc, Jiffy>(
                   bloc: dateBloc,
                   builder: (ctx, jiffy) {
@@ -103,6 +104,7 @@ class ContractsScreen extends StatelessWidget {
                     );
                   },
                 ),
+                // 
               ],
             ),
           );

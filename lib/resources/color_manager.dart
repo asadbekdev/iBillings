@@ -5,6 +5,7 @@ class ColorManager {
   static Color lightGreen = HexColor.fromHex("#00A795");
   static Color darkGreen = HexColor.fromHex("#008F7F");
   static Color black = HexColor.fromHex("#000000");
+  static Color lightDark = HexColor.fromHex("#4E4E4E");
   static Color dark = HexColor.fromHex("#2A2A2D");
   static Color darker = HexColor.fromHex("#1E1E20");
   static Color darkest = HexColor.fromHex("#141416");
