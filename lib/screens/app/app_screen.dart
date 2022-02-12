@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ibiling/blocs/cubit/bottom_nav_cubit.dart';
 import 'package:ibiling/screens/bookmark/bookmark_screen.dart';
 import 'package:ibiling/screens/contracts/contracts_screen.dart';
+import 'package:ibiling/screens/filters/filters_screen.dart';
 import 'package:ibiling/screens/history/history_screen.dart';
 import 'package:ibiling/screens/new_payment/new_screen.dart';
 import 'package:ibiling/screens/profile/profile_screen.dart';

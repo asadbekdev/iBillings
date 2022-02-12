@@ -7,7 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ibiling/resources/assets_manager.dart';
 import 'package:ibiling/resources/color_manager.dart';
 import 'package:ibiling/resources/font_manager.dart';
-import 'package:ibiling/screens/filters/components/custom_calendar.dart';
+import 'package:ibiling/screens/widgets/custom_calendar.dart';
 import 'package:ibiling/screens/filters/components/status_item.dart';
 
 class FiltersScreen extends StatelessWidget {

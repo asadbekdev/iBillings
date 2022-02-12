@@ -55,11 +55,11 @@ class CustomAppBar extends PreferredSize {
       actions: [
         IconButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => FiltersScreen(),
-              ),
+            showDialog(
+              context: context,
+              builder: (context) {
+                return FiltersScreen();
+              },
             );
           },
           icon: SvgPicture.asset(ImageAssets.filterIc),
