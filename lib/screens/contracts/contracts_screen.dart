@@ -1,0 +1,197 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ibiling/blocs/date_bloc/date_bloc.dart';
+import 'package:ibiling/blocs/cubit/selected_date_cubit.dart';
+import 'package:ibiling/resources/assets_manager.dart';
+import 'package:ibiling/resources/color_manager.dart';
+import 'package:ibiling/resources/font_manager.dart';
+import 'package:ibiling/screens/contracts/components/date_btn.dart';
+import 'package:ibiling/screens/contracts/components/payment_card.dart';
+import 'package:jiffy/jiffy.dart';
+
+class ContractsScreen extends StatelessWidget {
+  ContractsScreen({Key? key}) : super(key: key);
+
+  final dateBloc = DateBloc();
+  final selectedDateCubit = SelectedDateCubit();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: ColorManager.black,
+      body: BlocBuilder<SelectedDateCubit, int>(
+        bloc: selectedDateCubit,
+        builder: (context, selectedDate) {
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                // CALENDAR SECTION
+                BlocBuilder<DateBloc, Jiffy>(
+                  bloc: dateBloc,
+                  builder: (ctx, jiffy) {
+                    final fromDate = Jiffy([jiffy.year - 1, 1, 1]);
+                    return Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
+                      color: ColorManager.darker,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(width: 8.w),
+                              Text(
+                                "${jiffy.MMMM}, ${jiffy.year}",
+                                style: TextStyle(
+                                  color: ColorManager.grey1,
+                                  fontWeight: FontWeightManager.semiBold,
+                                  fontSize: FontSize.s18.sp,
+                                ),
+                              ),
+                              const Spacer(),
+                              Row(
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      if (jiffy.format("MM.yyyy") !=
+                                          fromDate.format("MM.yyyy")) {
+                                        dateBloc.add(DatePrevPressed());
+                                      }
+                                    },
+                                    splashColor: ColorManager.white,
+                                    child: SvgPicture.asset(
+                                        ImageAssets.arrowLeftIc,
+                                        color: ColorManager.grey2),
+                                  ),
+                                  SizedBox(width: 8.w),
+                                  InkWell(
+                                    onTap: () {
+                                      if (jiffy.format("MM.yyyy") !=
+                                          fromDate.format("MM.yyyy")) {
+                                        dateBloc.add(DateNextPressed());
+                                      }
+                                    },
+                                    splashColor: ColorManager.white,
+                                    child: SvgPicture.asset(
+                                        ImageAssets.arrowRightIc,
+                                        color: ColorManager.grey2),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                          SizedBox(height: 20.h),
+                          SizedBox(
+                            height: 72.h,
+                            child: ListView.separated(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: jiffy.daysInMonth,
+                              itemBuilder: (context, index) {
+                                return DateBtn(
+                                  jiffy: jiffy,
+                                  index: index,
+                                  selectedDate: selectedDateCubit.state,
+                                  onPressed: () =>
+                                      selectedDateCubit.selectDate(index),
+                                );
+                              },
+                              separatorBuilder: (context, index) {
+                                return SizedBox(width: 18.w);
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+                // PAYMENT DATAS
+                SizedBox(height: 32.h),
+                // PAYMENT TYPE TABBAR
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: DefaultTabController(
+                          length: 2,
+                          child: SizedBox(
+                            width: 182.w,
+                            height: 33.h,
+                            child: TabBar(
+                              labelStyle: TextStyle(
+                                fontSize: FontSize.s15.sp,
+                              ),
+                              labelColor: ColorManager.white,
+                              unselectedLabelColor: ColorManager.white,
+                              padding: EdgeInsets.zero,
+                              labelPadding: EdgeInsets.zero,
+                              indicatorWeight: 1.0,
+                              indicator: BoxDecoration(
+                                color: ColorManager.primary,
+                                borderRadius: BorderRadius.circular(6.0),
+                              ),
+                              tabs: const [
+                                Tab(text: "Contracts"),
+                                Tab(text: "Invoice"),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20.h),
+                      const PaymentCard(),
+                      // Expanded(
+                      //   child: ListView.builder(
+                      //     itemCount: 4,
+                      //     itemBuilder: (context, index) {
+                      //       return Container(
+                      //         padding: EdgeInsets.only(
+                      //           top: 12.h,
+                      //           bottom: 12.h,
+                      //           left: 10.w,
+                      //           right: 12.w,
+                      //         ),
+                      //         decoration: BoxDecoration(
+                      //           color: ColorManager.dark,
+                      //           borderRadius: BorderRadius.circular(6.0),
+                      //         ),
+                      //         child: Column(
+                      //           children: [
+                      //             Row(
+                      //               children: [
+                      //                 Row(
+                      //                   children: [
+                      //                     SvgPicture.asset(ImageAssets.paperIc),
+                      //                     SizedBox(width: 6.w),
+                      //                     Text(
+                      //                       "№ 154",
+                      //                       style: TextStyle(
+                      //                         fontSize: FontSize.s14.sp,
+                      //                         fontWeight:
+                      //                             FontWeightManager.semiBold,
+                      //                       ),
+                      //                     ),
+                      //                   ],
+                      //                 ),
+                      //               ],
+                      //             )
+                      //           ],
+                      //         ),
+                      //       );
+                      //     },
+                      //   ),
+                      // ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
