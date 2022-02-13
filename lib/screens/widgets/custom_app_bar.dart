@@ -3,21 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ibiling/blocs/cubit/bottom_nav_cubit.dart';
 import 'package:ibiling/resources/assets_manager.dart';
 import 'package:ibiling/resources/color_manager.dart';
 import 'package:ibiling/resources/font_manager.dart';
+import 'package:ibiling/screens/app/app_screen.dart';
 import 'package:ibiling/screens/filters/filters_screen.dart';
 import 'package:ibiling/screens/search/search_screen.dart';
 
 class CustomAppBar extends PreferredSize {
-  final String? title;
-  CustomAppBar({Key? key, required this.title})
+  final String title;
+  final Color backgroundColor;
+  CustomAppBar({Key? key, required this.title, required this.backgroundColor})
       : super(
           key: key,
           preferredSize: Size.fromHeight(51.h),
           child: Container(),
         );
-
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -44,7 +46,7 @@ class CustomAppBar extends PreferredSize {
         ),
       ),
       title: Text(
-        title!,
+        title,
         style: TextStyle(
           color: ColorManager.white,
           fontWeight: FontWeightManager.regular,
@@ -55,6 +57,7 @@ class CustomAppBar extends PreferredSize {
       actions: [
         IconButton(
           onPressed: () {
+            // bottomNavCubit.changeScreen(5);
             showDialog(
               context: context,
               builder: (context) {
@@ -88,8 +91,9 @@ class CustomAppBar extends PreferredSize {
         ),
         SizedBox(width: 15.w),
       ],
+      backgroundColor: backgroundColor,
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: ColorManager.black,
+        statusBarColor: backgroundColor,
       ),
     );
   }

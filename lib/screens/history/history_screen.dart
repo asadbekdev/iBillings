@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ibiling/resources/color_manager.dart';
 import 'package:ibiling/resources/font_manager.dart';
+import 'package:ibiling/screens/widgets/custom_app_bar.dart';
 import 'package:ibiling/screens/widgets/custom_calendar.dart';
 
 class HistoryScreen extends StatelessWidget {
@@ -10,6 +11,10 @@ class HistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(
+        title: 'History',
+        backgroundColor: ColorManager.darkest,
+      ),
       backgroundColor: ColorManager.black,
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 16.w),

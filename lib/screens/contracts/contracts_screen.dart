@@ -9,6 +9,7 @@ import 'package:ibiling/resources/color_manager.dart';
 import 'package:ibiling/resources/font_manager.dart';
 import 'package:ibiling/screens/contracts/components/date_btn.dart';
 import 'package:ibiling/screens/contracts/components/payment_card.dart';
+import 'package:ibiling/screens/widgets/custom_app_bar.dart';
 import 'package:jiffy/jiffy.dart';
 
 class ContractsScreen extends StatelessWidget {
@@ -19,6 +20,10 @@ class ContractsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(
+        title: 'Contracts',
+        backgroundColor: ColorManager.black,
+      ),
       backgroundColor: ColorManager.black,
       body: BlocBuilder<SelectedDateCubit, int>(
         bloc: selectedDateCubit,

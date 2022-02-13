@@ -1,6 +1,7 @@
 const String IMAGE_PATH = "assets/icons";
 
 class ImageAssets {
+  static const String accountCircleIc = "$IMAGE_PATH/accountCircle_ic.svg";
   static const String arrowDownCircleIc =
       "$IMAGE_PATH/arrow_down_circle_ic.svg";
   static const String arrowLeftIc = "$IMAGE_PATH/arrow_left_ic.svg";
@@ -17,6 +18,9 @@ class ImageAssets {
   static const String paperIc = "$IMAGE_PATH/paper_ic.svg";
   static const String plusIc = "$IMAGE_PATH/plus_ic.svg";
   static const String profileIc = "$IMAGE_PATH/profile_ic.svg";
+  static const String ruIc = "$IMAGE_PATH/ru_ic.png";
   static const String searchIc = "$IMAGE_PATH/search_ic.svg";
   static const String timeIc = "$IMAGE_PATH/time_ic.svg";
+  static const String usIc = "$IMAGE_PATH/us_ic.png";
+  static const String uzIc = "$IMAGE_PATH/uz_ic.png";
 }

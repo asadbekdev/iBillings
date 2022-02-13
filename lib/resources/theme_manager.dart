@@ -77,15 +77,24 @@ ThemeData getApplicationTheme() {
           color: ColorManager.lightGrey1,
           fontSize: FontSize.s14,
           fontWeight: FontWeightManager.light),
-
       border: OutlineInputBorder(
-          borderSide: BorderSide(
-              color: ColorManager.lightGrey1.withOpacity(0.4), width: 1.2.w),
-          borderRadius: BorderRadius.all(Radius.circular(4.w))),
-      // enabled border
+        borderSide: BorderSide(
+            color: ColorManager.lightGrey1.withOpacity(0.4), width: 1.2.w),
+        borderRadius: BorderRadius.all(Radius.circular(4.w)),
+      ),
       enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: ColorManager.lightGrey1, width: 1.2.w),
-          borderRadius: BorderRadius.all(Radius.circular(4.w))),
+        borderSide: BorderSide(color: ColorManager.lightGrey1, width: 1.2.w),
+        borderRadius: BorderRadius.all(Radius.circular(4.w)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: ColorManager.lightGrey1, width: 1.2.w),
+        borderRadius: BorderRadius.all(Radius.circular(4.w)),
+      ),
+      disabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+            color: ColorManager.lightGrey1.withOpacity(0.4), width: 1.2.w),
+        borderRadius: BorderRadius.all(Radius.circular(4.w)),
+      ),
     ),
   );
 }

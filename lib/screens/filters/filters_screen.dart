@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ibiling/blocs/cubit/bottom_nav_cubit.dart';
 import 'package:ibiling/resources/assets_manager.dart';
 import 'package:ibiling/resources/color_manager.dart';
 import 'package:ibiling/resources/font_manager.dart';
@@ -11,8 +12,9 @@ import 'package:ibiling/screens/widgets/custom_calendar.dart';
 import 'package:ibiling/screens/filters/components/status_item.dart';
 
 class FiltersScreen extends StatelessWidget {
-  const FiltersScreen({Key? key}) : super(key: key);
-
+  FiltersScreen({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     List _statusLabels = [
@@ -24,6 +26,10 @@ class FiltersScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorManager.black,
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {},
+          icon: SvgPicture.asset(ImageAssets.backIc),
+        ),
         title: Text(
           "Filters",
           style: TextStyle(

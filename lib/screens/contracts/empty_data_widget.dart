@@ -5,8 +5,11 @@ import 'package:ibiling/resources/assets_manager.dart';
 import 'package:ibiling/resources/color_manager.dart';
 import 'package:ibiling/resources/font_manager.dart';
 
-class EmptyContractsScreen extends StatelessWidget {
-  const EmptyContractsScreen({Key? key}) : super(key: key);
+class EmptyDataWidget extends StatelessWidget {
+  final String label;
+  final ImageAssets icon;
+  const EmptyDataWidget({Key? key, required this.label, required this.icon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

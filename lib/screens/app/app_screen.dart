@@ -10,16 +10,18 @@ import 'package:ibiling/screens/profile/profile_screen.dart';
 import 'package:ibiling/screens/widgets/custom_app_bar.dart';
 import 'package:ibiling/screens/widgets/custom_bottom_nav.dart';
 
+final bottomNavCubit = BottomNavCubit();
+
 class AppScreen extends StatelessWidget {
   AppScreen({Key? key}) : super(key: key);
 
-  final bottomNavCubit = BottomNavCubit();
   List screens = [
-    [ContractsScreen(), "Contracts"],
-    [HistoryScreen(), "History"],
-    [NewScreen(), "New"],
-    [SavedScreen(), "Saved"],
-    [ProfileScreen(), "Profile"]
+    ContractsScreen(),
+    HistoryScreen(),
+    NewScreen(),
+    SavedScreen(),
+    ProfileScreen(),
+    FiltersScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -27,10 +29,7 @@ class AppScreen extends StatelessWidget {
       bloc: bottomNavCubit,
       builder: (ctx, stateIndex) {
         return Scaffold(
-          appBar: CustomAppBar(
-            title: screens[stateIndex][1],
-          ),
-          body: screens[stateIndex][0],
+          body: screens[stateIndex],
           bottomNavigationBar: CustomBottomNav(bottomNavCubit: bottomNavCubit),
         );
       },
